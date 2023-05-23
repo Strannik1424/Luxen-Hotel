@@ -1,0 +1,127 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<div class="breadcrumb breadcrumb-1 pos-center">
+    <h1>RESERVATION FORM</h1>
+</div>
+<div class="light-book-form margint60 marginb60">
+    <div class="container">
+        <div class="row pos-center">
+            <div class="reserve-form-area">
+                <div class="pos-center marginb20">
+                    <h2>Reservation Form</h2>
+                    <img src="../static/img/shape.png">
+                </div>
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <form action="#" method="POST" id="ajax-reservation-form">
+                        <ul class="clearfix">
+                            {% csrf_token %}
+                            {{bookNowForm}}
+                            <li class="clearfix">
+                                <div class="button-style-1 clearfix margint70">
+                                    <input  type="submit"
+                                     value="BOOK RESERVATION" style="
+                                    /* margin-top: 37px; */
+                                    padding: 15px  20px;
+                                    color: white;
+                                    border-radius: 5px;
+                                    border: 0;
+                                    background: orange;
+                                    display: inline-block;
+                                    text-align: center;
+                                    cursor:pointer;
+                                    width: 204px;
+                                    " >
+                                </div>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+                <div class="col-lg-3"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div id="parallax123" class="parallax parallax-one clearfix"><!-- Parallax Section -->
+        <div class="support-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-sm-4">
+                        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                            <div class="flipper">
+                                <div class="support-box pos-center front">
+                                    <div class="support-box-title"><i class="fa fa-phone"></i></div>
+                                    <h4>NO FEES</h4>
+                                    <p class="margint20">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut ferme fentum</p>
+                                </div>
+                                <div class="support-box pos-center back">
+                                    <div class="support-box-title"><i class="fa fa-phone"></i></div>
+                                    <h4>NO FEES</h4>
+                                    <p class="margint20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, et.<br />+61 3 8376 6284</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-4">
+                        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                            <div class="flipper">
+                                <div class="support-box pos-center front">
+                                    <div class="support-box-title"><i class="fa fa-envelope"></i></div>
+                                    <h4>QUICK RESERVATION</h4>
+                                    <p class="margint20">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut ferme fentum</p>
+                                </div>
+                                <div class="support-box pos-center back">
+                                    <div class="support-box-title"><i class="fa fa-envelope"></i></div>
+                                    <h4>QUICK RESERVATION</h4>
+                                    <p class="margint20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, et.<br />luxen@2035themes.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-4">
+                        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                            <div class="flipper">
+                                <div class="support-box pos-center front">
+                                    <div class="support-box-title"><i class="fa fa-home"></i></div>
+                                    <h4>CALL TO YOU</h4>
+                                    <p class="margint20">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut ferme fentum</p>
+                                </div>
+                                <div class="support-box pos-center back">
+                                    <div class="support-box-title"><i class="fa fa-home"></i></div>
+                                    <h4>CALL TO YOU</h4>
+                                    <p class="margint20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, et.<br />+61 3 8376 6284</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="newsletter-section"><!-- Newsletter Section -->
+        <div class="container">
+            <div class="row">
+                <div class="newsletter-top pos-center margint30">
+                    <img alt="Shape Image" src="img/shape.png" >
+                </div>
+                <div class="newsletter-form margint40 pos-center">
+                    <div class="newsletter-wrapper">
+                        <div class="pull-left">
+                            <h2>Sign up newsletter</h2>
+                        </div>
+                        <div class="pull-left">
+                            <form action="#" method="post" id="ajax-contact-form">
+                                <input type="text" placeholder="Enter a e-mail address">
+                                <input type="submit" value="SUBSCRIBE" >
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% endblock content %}

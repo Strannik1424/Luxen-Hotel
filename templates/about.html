@@ -1,0 +1,88 @@
+{% extends './index.html' %}
+
+{% block content %}
+<div class="breadcrumb breadcrumb-1 pos-center">
+    <h1>ABOUT THE HOTEL</h1>
+</div>
+<div class="content"><!-- Content Section -->
+    <div class="container">
+        <div class="row">
+            <div class="about-slider margint40"><!-- About Slider -->
+                <div class="col-lg-12">
+                    <div class="flexslider">
+                        <ul class="slides">
+                            <li><img alt="Slider 1" class="img-responsive" src="{{aboutHotels.img.url}}" /></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="about-info clearfix"><!-- About Info -->
+                <div class="col-lg-8">
+                    <h3>ABOUT US</h3>
+                    <p class="margint30">{{aboutHotels.text}}</p>
+                </div>
+                <div class="col-lg-4">
+                    <h3>SIDEBAR</h3>
+                    {% for sd in sidebar %}
+                    <div id="accordion" class="margint30">
+                        <div class="panel panel-luxen active-panel">
+                            <div class="panel-style active">
+                                <h4><span class="plus-box"><i class="fa fa-angle-up"></i></span> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1">{{sd.title}}</a></h4>
+                            </div>
+                            <div id="collapse1" class="collapse collapse-luxen in">
+                                <div class="padt20">    	
+                                    <p>{{sd.text}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="about-services margint60 clearfix"><!-- About Services -->
+                {% for slide in slideAbout %}
+                <div class="col-lg-4 col-sm-6">
+                    <img alt="About Services" class="img-responsive" src="{{slide.img.url}}" >
+                    <h5 class="margint20">{{slide.title}}</h5>
+                    <p class="margint20">{{slide.text|truncatechars:200}} </p>
+                </div>
+                {% endfor %}
+                
+            </div>
+            <div class="about-destination margint40 marginb40 clearfix"><!-- About Destination -->
+                <div class="title pos-center marginb40">
+                    <h2>DESTINATIONS</h2>
+                    <div class="title-shape"><img alt="Shape" src="../static/img/shape11.png"/></div>
+                </div>
+                <div class="col-lg-8 col-sm-12 about-title pos-center">
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="tab1">
+                            <div style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/213/moscow/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Москва</a><a href="https://yandex.ru/maps/213/moscow/catalog/?ll=37.759149%2C55.706268&utm_medium=mapframe&utm_source=maps&z=10" style="color:#eee;font-size:12px;position:absolute;top:14px;">1 178 146 организаций Москвы — Яндекс Карты</a><iframe src="https://yandex.ru/map-widget/v1/?ll=37.759149%2C55.706268&mode=catalog&z=10" width="750" height="408" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+                        </div>
+                        <div class="tab-pane fade" id="tab2">
+                            <div style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Яндекс Карты</a><a href="https://yandex.ru/maps/?ll=29.030665%2C41.036424&utm_medium=mapframe&utm_source=maps&z=8.32" style="color:#eee;font-size:12px;position:absolute;top:14px;">Провинция Стамбул — Яндекс Карты</a><iframe src="https://yandex.ru/map-widget/v1/?ll=29.030665%2C41.036424&z=8.32" width="750" height="408" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+                        </div>
+                        <div class="tab-pane fade" id="tab3">
+                            <div style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/202/new-york/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Нью‑Йорк</a><a href="https://yandex.ru/maps/202/new-york/?ll=-73.894440%2C40.679208&utm_medium=mapframe&utm_source=maps&z=10.13" style="color:#eee;font-size:12px;position:absolute;top:14px;">Штат Нью‑Джерси — Яндекс Карты</a><iframe src="https://yandex.ru/map-widget/v1/?ll=-73.894440%2C40.679208&z=10.13" width="750" height="408" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-12 tabbed-area tab-style">
+                    <div class="about-destination-box active-tab">
+                        <a href="#tab1"><h6>MAP DESTINATION</h6></a>    
+                        <a href="#tab1"><p class="margint10">Duis mollis, est non commodo luctus, nisi erat odiot urna mollis ornare vel eu leo. semper. </p></a>
+                    </div>                    
+                    <div class="about-destination-box">
+                        <a href="#tab2"><h6>BUS DESTINATION</h6></a>
+                        <a href="#tab2"><p class="margint10">Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Integer posuere erat .Do gravida at eget metus.</p></a>
+                    </div> 
+                    <div class="about-destination-box">
+                        <a href="#tab3"><h6>OWN CAR</h6></a>
+                        <a href="#tab3"><p class="margint10">Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Integer posuere era at eget metus.</p></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

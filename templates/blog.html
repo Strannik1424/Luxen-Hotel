@@ -1,0 +1,91 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<div class="breadcrumb breadcrumb-1 pos-center" >
+    <h1 style="margin:0 auto;">BLOG</h1>
+</div>
+<div class="content"><!-- Content Section -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-sm-8 blog-post-contents">
+                {% for model in all_model %}
+                <div class="blog-post"><!-- Blog Post -->
+                    <h3><a href="blog-details.html">{{model.title}}</a></h3>
+                    <div class="post-materials  clearfix">
+                        <ul>                                
+                            <li><h6><a href="#"><i class="fa fa-calendar"></i> {{model.date_create}}</a></h6></li>
+                            <li><h6><a href="#"><i class="fa fa-user"></i>ADMIN</a></h6></li>
+                            {% comment %} <li><h6><a href="#"><i class="fa fa-comments"></i>{{comments_counts[model.id]}} COMMENTS</a></h6></li> {% endcomment %}
+                            <li><h6><i class="fa fa-tags"></i>
+                                {% for tags  in model.tags.all  %}
+                                <a href="#">{{tags.name}}, </a>
+                                {% endfor %}
+                            </h6></li>
+                        </ul>
+                    </div>
+                    <div class="blog-image marginb30 margint30">
+                        <img alt="Blog Image 2" class="img-responsive" src="{{model.img.url}}" >
+                    </div>
+                    <div class="post-content margint10">
+                        <p>{{model.text|truncatechars:350}}</p>
+                    </div>
+                    <div class="button mini-button button-style-2 margint30"><h6><a href="{% url 'post_detail' pk=model.pk %}">READ MORE</a></h6></div>
+                </div>
+                {% endfor %}
+               
+            </div>
+            <div class="col-lg-3 col-sm-4 margint60"><!-- Sidebar -->
+                <div class="luxen-widget news-widget">
+                    <div class="title">
+                        <h5>RECENT NEWS</h5>
+                    </div>
+                    <ul class="sidebar-recent">
+                        {% for model in recentNews %}
+                        <li class="clearfix">
+                            <h6><a href="#">{{model.title}}</a></h6>
+                            <div class="pull-left blg-img margint20">
+                                <img src="{{model.img.url}}" class="img-responsive" alt="">
+                            </div>
+                            <div class="pull-left blg-txt">
+                                <p>{{model.text|truncatechars:100}} <a class="active-color" href="#">[...]</a></p>
+                            </div>
+                        </li>
+                        {% endfor %}
+                        
+                    </ul>
+                </div>
+                <div class="luxen-widget news-widget">
+                    <div class="title">
+                        <h5>{{info.title}}</h5>
+                    </div>
+                    <p>{{info.text}}</p>
+                </div>
+                <div class="luxen-widget news-widget">
+                    <div class="title">
+                        <h5>CONTACT</h5>
+                    </div>
+                    <ul class="footer-links">
+                        <li><p><i class="fa fa-map-marker"></i> {{contact.local}} </p></li>
+                        <li><p><i class="fa fa-phone"></i> {{contact.phone}} </p></li>
+                        <li><p><i class="fa fa-envelope"></i> {{contact.email}}</p></li>
+                    </ul>
+                </div>
+                <div class="luxen-widget news-widget">
+                    <div class="title">
+                        <h5>SOCIAL MEDIA</h5>
+                    </div>
+                    <ul class="social-links">
+                        <li><a href="http://facebook.com/2035themes"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="http://twitter.com/2035themes"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="http://vine.com/2035themes"><i class="fa fa-vine"></i></a></li>
+                        <li><a href="http://foursquare.com/2035themes"><i class="fa fa-foursquare"></i></a></li>
+                        <li><a href="http://instagram.com/2035themes"><i class="fa fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

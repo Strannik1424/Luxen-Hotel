@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+
+
+{% block content %}
+<div class="breadcrumb breadcrumb-1 pos-center">
+    <h1>GALLERY</h1>
+</div>
+<div class="content"><!-- Gallery Section -->
+    <div class="container">
+        <div class="row">	
+            {% for ap in apartment  %}
+            <div class="col-lg-4 col-sm-6 gallery-box">
+                <a href="{{ap.img.url}}"  rel="prettyPhoto[pp_gal]"><img   style="width: 360px; height: 180px;" alt="Gallery" class="img-responsive" src="{{ap.img.url}}"></a>
+                <a style="display:none;" href="{{ap.img.url}}" rel="prettyPhoto[pp_gal]"><img  style="width: 360px; height: 150px;" alt="Gallery" class="img-responsive" src="{{ap.img.url}}"></a>
+                {% comment %} <a style="display:none;" href="temp/room-gallery-image-3.jpg" rel="prettyPhoto[pp_gal]"><img alt="Gallery" class="img-responsive" src="temp/room-gallery-image-1.jpg"></a> {% endcomment %}
+                <a href="{{ap.img.url}}" rel="prettyPhoto[pp_gal]"><h5>{{ap.title}}</h5></a>
+                <a href="{% url 'post_detail' pk=ap.pk %}" ><h6>Подробнее</h6></a>
+            </div>	
+            {% endfor %}
+            
+        </div>
+    </div>
+</div>
+{% endblock content %}

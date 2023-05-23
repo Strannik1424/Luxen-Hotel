@@ -1,0 +1,68 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="breadcrumb breadcrumb-1 pos-center">
+    <h1>CATEGORY GRID</h1>
+</div>
+<div class="content"><!-- Content Section -->
+    <div class="container margint60">
+        <div class="row">
+            <div class="col-lg-12 marginb20"><!-- Room Sort -->
+                <div class="sortby clearfix">
+                    <div class="pull-left">
+                        <select>
+                            <option selected="selected">ASCENDING</option>
+                            <option>DESCENDING</option>
+                        </select>
+                    </div>
+                    <div class="pull-right sort-icon">
+                        <a class="fright" href="category-grid.html"><img src="temp/grid-icon.png" alt=""></a> 
+                        <a class="fright" href="category-list.html"><img src="temp/list-icon.png" alt=""></a>
+                    </div>
+                </div>	
+            </div>
+            {% for ap in apartment %}
+            <div class="col-lg-4 col-sm-6 clearfix"><!-- Explore Rooms -->
+                <div class="home-room-box clearfix">
+                    <div class="room-image">
+                        <img style="width:360px; height: 200px;" alt="Room Images" class="img-responsive" src="{{ap.img.url}}">
+                        <div class="home-room-details">
+                            <h5><a href="#">{{ap.title}}</a></h5>
+                            <div class="pull-left">
+                                <ul>
+                                    <li><i class="fa fa-calendar"></i></li>
+                                    <li><i class="fa fa-flask"></i></li>
+                                    <li><i class="fa fa-umbrella"></i></li>
+                                    <li><i class="fa fa-laptop"></i></li>
+                                </ul>
+                            </div>
+                            <div class="pull-right room-rating">
+                                <ul>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star inactive"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="room-details">
+                        <p>{{ap.text|truncatechars:200}}</p>
+                    </div>
+                    <div class="room-bottom">
+                        <div class="pull-left"><h4>{{ap.price}}$<span class="room-bottom-time">/ Day</span></h4></div>
+                        <div class="pull-right">
+                            <div class="button-style-1">
+                                <a href="{% url 'reservation' %}">BOOK NOW</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            
+        </div>
+    </div>
+</div>
+{% endblock content %}
